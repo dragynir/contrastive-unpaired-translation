@@ -6,6 +6,8 @@ from models import create_model
 from util.visualizer import Visualizer
 
 
+# trainA, trainB folders with same sie 512x512x3
+
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
     dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
