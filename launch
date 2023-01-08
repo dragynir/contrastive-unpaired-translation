@@ -5,7 +5,7 @@
 #SBATCH -o launch_paired_gan.out  # Name of stdout output file (%j expands to %jobId)
 #SBATCH -N 1   # Total number of nodes requested
 #SBATCH -c 4   # CPUs per task
-#SBATCH -t 24:00:00 # Maximal run time (hh:mm:ss) - 1 minute
+#SBATCH -t 32:00:00 # Maximal run time (hh:mm:ss) - 1 minute
 . $CONDA_ROOT/etc/profile.d/conda.sh
 
 module load nvidia/cuda
@@ -21,4 +21,5 @@ echo $SLURM_NTASKS
 nvidia-smi
 cd /home/d_korostelev/Projects/super_resolution/contrastive-unpaired-translation
 source env_contr/bin/activate
-python train.py --dataroot ./datasets/glass --name tomo_train_CUT --CUT_mode CUT --continue_train
+nohup python train.py --dataroot ./datasets/glass --name tomo_train_CUT --CUT_mode CUT --continue_train &
+python train.py --dataroot ./datasets/glass_2x --name tomo_train_2x_CUT --CUT_mode CUT
