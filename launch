@@ -21,4 +21,4 @@ echo $SLURM_NTASKS
 nvidia-smi
 cd /home/d_korostelev/Projects/super_resolution/contrastive-unpaired-translation
 source env_contr/bin/activate
-python train.py --dataroot ./datasets/glass --name tomo_train_CUT --CUT_mode CUT
+python train.py --dataroot ./datasets/glass --name tomo_train_CUT --CUT_mode CUT --continue_train
