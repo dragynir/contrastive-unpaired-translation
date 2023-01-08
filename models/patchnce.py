@@ -48,7 +48,7 @@ class PatchNCELoss(nn.Module):
         l_neg = l_neg_curbatch.view(-1, npatches)
 
         out = torch.cat((l_pos, l_neg), dim=1) / self.opt.nce_T
-
+        # TODO change it to focal loss
         loss = self.cross_entropy_loss(out, torch.zeros(out.size(0), dtype=torch.long,
                                                         device=feat_q.device))
 
